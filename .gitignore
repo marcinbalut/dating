@@ -455,3 +455,5 @@ $RECYCLE.BIN/
 
 appsettings.json
 API/dating.db
+API/dating.db-shm
+API/dating.db-wal
