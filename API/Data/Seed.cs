@@ -36,13 +36,19 @@ namespace API.Data
             foreach (var user in users)
             {
                 user.UserName = user.UserName.ToLower();
+
+                user.Created = DateTime.SpecifyKind(user.Created, DateTimeKind.Utc);
+                user.LastActive = DateTime.SpecifyKind(user.LastActive, DateTimeKind.Utc);
+
                 await userManager.CreateAsync(user, "!234Pass");
                 await userManager.AddToRoleAsync(user, "Member");
             }
 
             var admin = new AppUser
             {
-                UserName = "admin"
+                UserName = "admin",
+                Created = DateTime.UtcNow,
+                LastActive = DateTime.UtcNow
             };
 
             await userManager.CreateAsync(admin, "!234Pass");
