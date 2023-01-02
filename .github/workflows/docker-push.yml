@@ -5,12 +5,12 @@ on:
   # push:
   #   branches:
   #     - 'main' # master ?
-
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
